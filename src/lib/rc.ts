@@ -1,0 +1,43 @@
+const RC: Record<string, string> = {
+  "00": "Transaksi sukses",
+  "01": "Timeout",
+  "02": "Transaksi gagal",
+  "03": "Transaksi masih pending",
+  "40": "Payload tidak sesuai",
+  "41": "Signature tidak valid. Cek username dan API key.",
+  "42": "Username belum sesuai",
+  "43": "SKU tidak ditemukan atau nonaktif",
+  "44": "Saldo deposit tidak cukup",
+  "45": "IP server belum didaftarkan di panel Digiflazz",
+  "47": "Transaksi sudah terjadi di buyer lain",
+  "49": "Ref ID tidak unik",
+  "50": "Transaksi tidak ditemukan",
+  "51": "Nomor tujuan diblokir",
+  "52": "Prefix tidak sesuai operator",
+  "53": "Produk seller sedang tidak tersedia",
+  "54": "Nomor tujuan salah",
+  "55": "Produk sedang gangguan",
+  "57": "Jumlah digit nomor kurang atau lebih",
+  "58": "Sedang cut off",
+  "59": "Tujuan di luar wilayah",
+  "60": "Tagihan belum tersedia",
+  "61": "Belum pernah deposit",
+  "62": "Seller sedang gangguan",
+  "63": "Tidak support transaksi multi",
+  "68": "Stok habis",
+  "69": "Harga seller melebihi batas harga kamu",
+  "70": "Timeout dari biller",
+  "71": "Produk sedang tidak stabil",
+  "73": "kWh melebihi batas",
+  "83": "Limit pengecekan daftar harga. Tunggu lalu coba lagi.",
+  "84": "Nominal tidak valid",
+  "85": "Limitasi transaksi",
+  "86": "Limit pengecekan nomor PLN",
+  "87": "E-money wajib kelipatan Rp 1.000",
+  "99": "Pending di router Digiflazz",
+};
+
+export function explainRc(rc: string, fallback: string) {
+  if (!rc) return fallback;
+  return RC[rc] ?? fallback;
+}

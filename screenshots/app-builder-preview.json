@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "GeraiKuota",
+      "hasCanvas": false,
+      "bodyTextLen": 578,
+      "bodyTextHash": "80a744b19260c390e0a4e0c78bb6c63013039ce89ec42479034130b311e925d7",
+      "bodyTextPrefix": "GK GeraiKuota Kasir Digiflazz Beranda Jual Riwayat Harga Atur Ge",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "GeraiKuota",
+      "hasCanvas": false,
+      "bodyTextLen": 551,
+      "bodyTextHash": "3742c637dcc6bd948980a89409af9bf4915db6d36f9a1562a517cbb7b77c58c2",
+      "bodyTextPrefix": "GK Gerai Kuota Demo Kasir Mode demo. Harga dan saldo di bawah in",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [
+    "BRAND NOTE: no custom public/og.jpg — the platform will serve the og.grok.me placeholder. Custom cards are the default for games of every kind (DOM board/word games included), whimsical apps, creative tools, and brand-forward pages — only plain utilities (converters, CRUD trackers, admin dashboards) keep the placeholder. If this app is not a plain utility, finish the brand-asset pass per /workspace/.grok/skills/og/SKILL.md."
+  ],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
