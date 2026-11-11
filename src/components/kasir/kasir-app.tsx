@@ -7,6 +7,7 @@ import { PricesScreen } from "@/components/kasir/prices-screen";
 import { ReceiptView } from "@/components/kasir/receipt-view";
 import { SellScreen } from "@/components/kasir/sell-screen";
 import { SettingsScreen } from "@/components/kasir/settings-screen";
+import { pullCatalog } from "@/lib/checkout";
 import { isConnected } from "@/lib/money";
 import { useKasir } from "@/lib/store";
 import type { Screen } from "@/lib/types";
@@ -26,7 +27,28 @@ export function KasirApp() {
   const connected = isConnected(settings);
 
   useEffect(() => {
-    void useKasir.persist.rehydrate();
+    let active = true;
+    void (async () => {
+      await useKasir.persist.rehydrate();
+      if (!active) return;
+
+      const state = useKasir.getState();
+      if (!isConnected(state.settings)) return;
+
+      // Refresh the saved Digiflazz catalogue at most once every 12 hours.
+      const lastSync = state.catalogAt ? Date.parse(state.catalogAt) : 0;
+      if (Number.isFinite(lastSync) && Date.now() - lastSync < 12 * 60 * 60 * 1000) return;
+
+      try {
+        await pullCatalog();
+      } catch {
+        // Keep the last saved catalogue available if the network/API is temporarily unavailable.
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   const mode = !connected ? "Demo" : settings.testing ? "Uji" : "Live";
